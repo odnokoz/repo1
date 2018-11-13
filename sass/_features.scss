@@ -1,0 +1,38 @@
+.features {
+	
+	grid-column: center-start / center-end;
+
+	margin: 15rem 0;
+
+	display: grid; 
+	//grid-template-columns: repeat(3, 1fr);
+	//вместо этого добавим адаптив без использования media
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	grid-gap: 6rem;
+	align-items: start;
+}
+
+.feature {//можем использовать как отдельный бок где либо еще на странице
+	
+	display: grid;	
+	//grid-template-columns: min-content - для icon
+	//grid-template-rows: не будем описывать, тк размер автоматически подстроится под контент
+
+	grid-template-columns: min-content 1fr;
+	grid-row-gap: 1.5rem;
+	grid-column-gap: 2.5rem;
+
+	&__icon {
+		fill: $color-primary;//раскрашиваем иконку
+		//задаем ей размер
+		width: 4.5rem;
+		height: 4.5rem;
+		///grid-row: 1/ -1; где -1 -the end of explicit grid?тк мы не опредеялли ряды то они все ixplicit
+		grid-row: 1 / span 2;
+		transform: translateY(-1rem);
+	}
+
+	&__text {
+		font-size: 1.7rem;
+	}
+}
