@@ -9,10 +9,20 @@
 	padding-top: 4rem;
 
 	display: grid;
-	grid-template-rows: 1fr min-content 6rem 1fr;
-	grid-template-columns: max-content;
+	grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+	grid-template-columns: minmax(min-content, max-content);
 	grid-row-gap: 1.5rem;
 	justify-content: center;
+
+	@media only screen and (max-width: $bp-medium) {
+		grid-column: 1 / -1;
+		padding: 5rem;		
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		grid-row-gap: 1.1rem;
+		padding: 2rem;		
+	}
 
 
 	&__logo {
@@ -51,10 +61,12 @@
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 3rem;
 		justify-items: center;
+		align-items: center;
 
 		img {
-			height: 2.5rem;
+			max-height: 2.5rem;
 			//если задать ширину, то они будут смотреться странно изза разной высоты
+			max-width: 100%;
 			filter: brightness(70%);
 		}
 	}
